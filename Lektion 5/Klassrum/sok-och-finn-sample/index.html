@@ -7,10 +7,38 @@
 		<link rel="stylesheet" href="/src/style.css" />
 	</head>
 	<body>
-		<nav>
-			<a href="/src/pages/upload.html">Upload</a>
-			<a href="/src/pages/query.html">Query</a>
-		</nav>
-		<h1>Sök och du ska finna!</h1>
+		<div id="auth-container" style="display: none">
+			<div class="form-widget">
+				<h1 class="header">Supabase authentication</h1>
+				<p class="description">
+					Sign in with magic link, enter your email below
+				</p>
+				<form id="auth-form">
+					<div>
+						<input
+							id="email-input"
+							class="inputField"
+							type="email"
+							placeholder="Enter your email"
+							required
+						/>
+					</div>
+					<div>
+						<button id="submit-button" class="button block" type="submit">
+							Send magic link.
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="main-content" style="display: none">
+			<nav>
+				<a href="/src/pages/upload.html">Upload</a>
+				<a href="/src/pages/query.html">Query</a>
+			</nav>
+			<h1>Sök och du ska finna!</h1>
+			<button id="logout-button">Log out</button>
+		</div>
+		<script type="module" src="src/scripts/auth.js"></script>
 	</body>
 </html>
