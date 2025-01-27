@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Query</title>
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+	<body>
+		<nav>
+			<a href="/index.html">Home</a>
+			<a href="/src/pages/upload.html">Upload</a>
+		</nav>
+		<h1>Query Page</h1>
+		<form id="queryForm">
+			<textarea
+				id="queryText"
+				rows="5"
+				placeholder="Ask your question..."
+			></textarea>
+			<button type="submit">Search</button>
+		</form>
+		<div id="responseField">
+			<h2>Response:</h2>
+			<p id="responseText">No response yet...</p>
+		</div>
+		<script type="module" src="../scripts/query.js"></script>
+	</body>
+</html>

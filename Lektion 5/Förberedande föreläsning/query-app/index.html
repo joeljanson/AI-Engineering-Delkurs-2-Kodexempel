@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sök och du ska finna!</title>
+		<link rel="stylesheet" href="/src/style.css" />
+	</head>
+	<body>
+		<div id="auth-container" style="display: none">
+			<div class="form-widget">
+				<h1 class="header">Supabase + Vanilla JS</h1>
+				<p class="description">Sign in via magic link with your email below</p>
+				<form id="auth-form" class="form-widget">
+					<div>
+						<input
+							id="email-input"
+							class="inputField"
+							type="email"
+							placeholder="Your email"
+							required
+						/>
+					</div>
+					<div>
+						<button id="submit-button" class="button block" type="submit">
+							Send magic link
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="main-content" style="display: none">
+			<nav>
+				<a href="/src/pages/upload.html">Upload</a>
+				<a href="/src/pages/query.html">Query</a>
+				<a href="/src/pages/upload-image.html">Upload Image</a>
+			</nav>
+			<h1>Sök och du ska finna!</h1>
+
+			<button id="logout-button">Log Out</button>
+		</div>
+
+		<script type="module" src="/src/scripts/auth.js"></script>
+	</body>
+</html>

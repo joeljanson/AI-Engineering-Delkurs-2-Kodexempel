@@ -1,0 +1,66 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+}
+
+nav {
+	background: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+
+nav a {
+	color: #fff;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+form {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+textarea {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	resize: none;
+}
+
+button {
+	background: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #555;
+}
+
+#responseField {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
