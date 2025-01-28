@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@huggingface/inference": "^3.0.0",
+    "@huggingface/transformers": "^3.3.2",
     "@supabase/supabase-js": "^2.48.0"
   }
 }

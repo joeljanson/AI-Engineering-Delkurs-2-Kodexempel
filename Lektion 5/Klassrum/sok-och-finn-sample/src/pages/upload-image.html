@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Upload Image</title>
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+	<body>
+		<nav>
+			<a href="/index.html">Home</a>
+			<a href="/src/pages/upload.html">Upload</a>
+			<a href="/src/pages/query.html">Query</a>
+		</nav>
+		<h1>Upload image page</h1>
+
+		<form id="uploadImageForm">
+			<label for="imageInput">Select an image: </label>
+			<input type="file" id="imageInput" accept="image/*" />
+			<button type="submit">Upload image</button>
+		</form>
+
+		<div id="statusMessage"></div>
+
+		<script type="module" src="../scripts/upload-image.js"></script>
+	</body>
+</html>
