@@ -30,4 +30,4 @@ $$;
 
 
 -- För att skapa ett index för våra embeddings - kör denna i SQL-editorn i Supabase
-CREATE INDEX ON small_documents_indexed USING ivfflat (embedding);
+CREATE INDEX ON documents USING ivfflat (embedding);

@@ -62,7 +62,7 @@ async function insertMultipleEmbeddingsFromCSV() {
 
 		/* 
         
-        Här behöver ni ladda upp embeddings till supabase
+        Här behöver ni ladda upp embeddings till supabase (se supabase.insert) 
 
         */
 
