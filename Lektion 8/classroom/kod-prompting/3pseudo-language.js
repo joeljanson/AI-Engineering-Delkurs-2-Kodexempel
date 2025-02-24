@@ -11,6 +11,7 @@ I want to build a simple JavaScript class that includes variables and methods.
 - Create a pseudo language (similar to Markdown) that lets me describe the class, its variables, constructor, and methods.
 - Respond with a template that I can use, as well as one example class. Keep everything as simple as possible.
 
+//Modellens svar
 # ClassName
 
 Variables:

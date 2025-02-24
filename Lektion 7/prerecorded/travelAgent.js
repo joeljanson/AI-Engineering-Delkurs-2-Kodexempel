@@ -26,11 +26,16 @@ async function run(destination, interest) {
 		history: [],
 	});
 
-	const prompt1 = `We are planning a trip to ${destination} with a focus on ${interest}. Please list the top 10 must-see attractions in ${destination}`;
+	const prompt1 = `We are planning a trip to ${destination} with a focus on ${interest}. Please list the top 10 must-see attractions in ${destination}. If the destination or interests are not valid return a message saying <INVALID REQUEST>`;
 
 	const result1 = await chatSession.sendMessage(prompt1);
 	const attractionsText = result1.response.text();
 	console.log("Attractions:", result1.response.text());
+
+	if (attractionsText.trim() === "<INVALID REQUEST>") {
+		console.log("Invalid request");
+		return;
+	}
 
 	const prompt2 = `Based on the attractions you just listed, please group these attractions by their location or neighborhood so that visiting them in a single day would minimize travel time`;
 
@@ -45,4 +50,4 @@ async function run(destination, interest) {
 	console.log(result3.response);
 }
 
-run("Stockholm", "art, cuisine and local history");
+run("Paris", "art, cuisine and architecture");
