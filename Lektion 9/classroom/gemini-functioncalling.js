@@ -1,4 +1,3 @@
-// https://ai.google.dev/gemini-api/docs/function-calling - Bra resurs
 const dotenv = require("dotenv/config");
 const {
 	GoogleGenerativeAI,
@@ -31,6 +30,20 @@ const model = genAI.getGenerativeModel({
 						required: ["latitude", "longitude"],
 					},
 				},
+				{
+					name: "getLocation",
+					description: "gets the latitude and longitude for a requested city",
+					parameters: {
+						type: "object",
+						properties: {
+							city: {
+								type: "string",
+								description: "the name of the city",
+							},
+						},
+						required: ["city"],
+					},
+				},
 			],
 		},
 	],
@@ -46,62 +59,82 @@ const generationConfig = {
 };
 
 async function run() {
-	//console.log(await getCurrentWeather(52.52, 13.41));
 	const chatSession = model.startChat({
 		generationConfig,
 		history: [],
 	});
 
-	const result = await chatSession.sendMessage(
-		"What is the weather like in stockholm?"
-	);
-	for (candidate of result.response.candidates) {
-		console.log("Candidate is: ", candidate);
-		for (part of candidate.content.parts) {
-			console.log("Part is: ", part);
-			if (part.functionCall) {
-				const items = part.functionCall.args;
-				const args = Object.keys(items)
-					.map((data) => [data, items[data]])
-					.map(([key, value]) => `${key}:${value}`)
-					.join(", ");
-				console.log(`${part.functionCall.name}(${args})`);
-				if (part.functionCall.name === "getCurrentWeather") {
-					const weatherData = await getCurrentWeather(
-						items.latitude,
-						items.longitude
+	let message = "What is the weather like in los angeles?";
+	let response = await chatSession.sendMessage(message);
+	//console.log(response.response.text());
+
+	while (true) {
+		let functionCalled = false;
+		for (const candidate of response.response.candidates) {
+			for (const part of candidate.content.parts) {
+				if (part.functionCall) {
+					functionCalled = true;
+					const functionName = part.functionCall.name;
+
+					const args = part.functionCall.args;
+
+					let functionResult;
+					if (functionName === "getLocation") {
+						functionResult = await getLocation(args.city);
+					} else if (functionName === "getCurrentWeather") {
+						functionResult = await getCurrentWeather(
+							args.latitude,
+							args.longitude
+						);
+					}
+					console.log(
+						`Called ${functionName} with args ${JSON.stringify(args)}.`
 					);
-					console.log(weatherData);
-					const resultTwo = await chatSession.sendMessage([
+					console.log(`Function result:`, functionResult);
+
+					const combinedResponse = {
+						weatherData: functionResult,
+						currentTime: new Date().toISOString(),
+					};
+					response = await chatSession.sendMessage([
 						{
 							functionResponse: {
-								name: "getCurrentWeather",
-								response: weatherData,
+								name: functionName,
+								response: combinedResponse,
 							},
 						},
 					]);
-					console.log(resultTwo.response);
-					console.log(resultTwo.response.text());
+					break;
 				}
 			}
+			if (functionCalled) break;
+		}
+		if (!functionCalled) {
+			console.log("Final response:", response.response.text());
+			break;
 		}
 	}
 }
 
 async function getLocation(city) {
-	const locationData = {
-		latitude: 59.3274,
-		longitude: 18.0653,
-	};
-	return locationData;
+	const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+		city
+	)}&format=json`;
+	const response = await fetch(url);
+	const data = await response.json();
+
+	if (data.length > 0) {
+		return {
+			latitude: data[0].lat,
+			longitude: data[0].lon,
+		};
+	} else {
+		throw new Error("City not found");
+	}
 }
 
 async function getCurrentWeather(latitude, longitude) {
-	console.log(
-		"Getting weather information from the weather api: ",
-		latitude,
-		longitude
-	);
+	console.log("Fetching weather data for:", latitude, longitude);
 	const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature`;
 	const response = await fetch(url);
 	const weatherData = await response.json();
