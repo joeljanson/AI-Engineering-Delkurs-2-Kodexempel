@@ -34,7 +34,7 @@ const model = genAI.getGenerativeModel({
 			],
 		},
 	],
-	toolConfig: { functionCallingConfig: { mode: "ANY" } },
+	toolConfig: { functionCallingConfig: { mode: "AUTO" } },
 });
 
 const generationConfig = {
@@ -83,10 +83,17 @@ async function run() {
 					console.log(resultTwo.response);
 					console.log(resultTwo.response.text());
 				}
-				//part.functionCall.name.apply(args);
 			}
 		}
 	}
+}
+
+async function getLocation(city) {
+	const locationData = {
+		latitude: 59.3274,
+		longitude: 18.0653,
+	};
+	return locationData;
 }
 
 async function getCurrentWeather(latitude, longitude) {
