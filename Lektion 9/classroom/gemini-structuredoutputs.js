@@ -40,12 +40,6 @@ const schema = {
 				},
 				required: ["step1", "step2", "step3"],
 			},
-			likability: {
-				type: SchemaType.NUMBER,
-				description:
-					"A number between 0 and 1 that approximates how likely it is that someone who only likes chocolate cookies will like this recipe.",
-				nullable: false,
-			},
 			validRequest: {
 				type: SchemaType.BOOLEAN,
 				description:
@@ -56,7 +50,6 @@ const schema = {
 		required: [
 			"recipeName",
 			"recipeDescription",
-			"likability",
 			"validRequest",
 			"recipeSteps",
 		],
