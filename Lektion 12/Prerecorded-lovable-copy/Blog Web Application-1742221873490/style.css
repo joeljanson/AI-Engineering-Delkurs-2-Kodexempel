@@ -1,0 +1,214 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* For color customization transition */
+    background-color: #fff; /* Default white background */
+    color: #333; /* Dark grey text for readability */
+}
+
+header {
+    background-color: #282c34; /* Dark background for header */
+    color: #fff; /* White text for header */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Space below header */
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center sections horizontally */
+}
+
+section {
+    margin-bottom: 30px;
+    width: 80%; /* Limit section width for better readability */
+    max-width: 800px; /* Maximum width for larger screens */
+    padding: 20px;
+    border: 1px solid #ddd; /* Light border for sections */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light grey background for sections */
+}
+
+h2 {
+    margin-top: 0;
+    color: #282c34; /* Dark color for headings */
+    border-bottom: 2px solid #e7e7e7; /* Underline headings */
+    padding-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #282c34; /* Dark background for footer */
+    color: #fff; /* White text for footer */
+    position: fixed; /* Fixed footer at the bottom */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Settings Styles */
+#settings {
+    display: flex;
+    justify-content: center; /* Center settings inputs */
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#settings label {
+    margin-right: 5px;
+    color: #555;
+}
+
+#settings input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 0;
+}
+
+#settings input[type="color"]::-webkit-color-swatch-wrapper {
+
+    padding: 0;
+}
+
+#settings input[type="color"]::-webkit-color-swatch {
+
+    border: none;
+    border-radius: 4px;
+}
+
+/* Create Post Section Styles */
+#create-post form {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-post label {
+    margin-top: 10px;
+    color: #555;
+}
+
+#create-post input[type="text"],
+#create-post textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#create-post textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+    min-height: 150px;
+}
+
+#create-post button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #5cb85c; /* Bootstrap success color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#create-post button[type="submit"]:hover {
+    background-color: #449d44; /* Darker shade on hover */
+}
+
+/* Blog Posts Section Styles */
+#post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-title-link {
+    text-decoration: none;
+    color: #337ab7; /* Bootstrap primary color */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.post-title-link:hover {
+    color: #23527c; /* Darker shade on hover */
+}
+
+.post-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#post-detail {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#post-detail h3 {
+    margin-top: 0;
+    color: #282c34;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 5px;
+}
+
+#post-detail p {
+    white-space: pre-line; /* Preserve line breaks in post content */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+#post-detail button#back-to-list {
+    margin-top: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #337ab7; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#post-detail button#back-to-list:hover {
+    background-color: #23527c; /* Darker shade on hover */
+}
+
+.delete-button {
+    background-color: #d9534f; /* Bootstrap danger color */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c9302c; /* Darker shade on hover */
+}

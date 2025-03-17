@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Sound Button</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sound-selection">
+            <label for="sound-select">Select Sound:</label>
+            <select id="sound-select">
+                <option value="synth">Synth</option>
+                <option value="piano">Piano</option>
+                <option value="drums">Drums</option>
+            </select>
+        </div>
+
+        <button id="play-button">Play Sound</button>
+
+        <div class="volume-control">
+            <label for="volume-slider">Volume:</label>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+        </div>
+
+        <div id="visualizer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

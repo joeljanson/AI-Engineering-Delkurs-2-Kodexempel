@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="todo-app">
+        <div id="input-area">
+            <input type="text" id="task-input" placeholder="Enter task...">
+            <select id="priority-select">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button id="add-task-button">Add Task</button>
+        </div>
+
+        <div id="filter-area">
+            <button id="filter-all" class="filter-button active-filter">All</button>
+            <button id="filter-active" class="filter-button">Active</button>
+            <button id="filter-completed" class="filter-button">Completed</button>
+        </div>
+
+        <div id="task-list">
+            <ul id="tasks-ul">
+                <!-- Task items will be dynamically added here by JavaScript -->
+                <!-- Example Task Item Structure (Template) -->
+                <!--
+                <li class="task-item" data-task-id="unique-task-id">
+                    <input type="checkbox" class="task-checkbox">
+                    <span class="task-text" contenteditable="true">Task description</span>
+                    <span class="task-priority">Priority: High</span>
+                    <button class="delete-button">Delete</button>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

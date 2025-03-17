@@ -1,0 +1,162 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#todo-app {
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#input-area {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#priority-select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#add-task-button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-task-button:hover {
+    background-color: #449d44;
+}
+
+#filter-area {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    background-color: #eee;
+    border: none;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #ddd;
+}
+
+.filter-button.active-filter {
+    background-color: #337ab7;
+    color: white;
+}
+
+#task-list {
+    /* No specific styles needed */
+}
+
+#tasks-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.task-item.completed {
+    background-color: #f9f9f9;
+    text-decoration: line-through;
+    color: #777;
+}
+
+.task-checkbox {
+    margin-right: 10px;
+}
+
+.task-text {
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+.task-priority {
+    margin-left: 10px;
+    font-size: 0.8em;
+}
+
+.task-priority.high {
+    color: red;
+}
+
+.task-priority.medium {
+    color: orange;
+}
+
+.task-priority.low {
+    color: green;
+}
+
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+@media (max-width: 768px) {
+    #input-area {
+        flex-direction: column;
+    }
+
+    #task-input, #priority-select, #add-task-button {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    #filter-area {
+        flex-direction: column;
+    }
+
+    .filter-button {
+        margin-bottom: 5px;
+    }
+}
